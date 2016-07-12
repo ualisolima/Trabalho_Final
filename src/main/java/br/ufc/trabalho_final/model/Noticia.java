@@ -28,7 +28,7 @@ public class Noticia {
 	@Column (nullable = false)
 	private String subtitulo ;
 	
-	@Column (nullable = false)
+	@Column (nullable = false, length=59999)
 	private String texto ;
 	
 	@Column(insertable=false,
@@ -55,7 +55,7 @@ public class Noticia {
 	@OneToMany(mappedBy="noticia",
 			   targetEntity=Comentario.class,
 			   fetch=FetchType.LAZY,
-			   cascade = CascadeType.REMOVE)
+			   cascade = CascadeType.ALL)
 	private List<Comentario> comentarios ;
 	
 	public Long getId_noticia() {

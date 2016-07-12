@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+
 @Entity (name = "usuario")
 public class Usuario {
 	
@@ -36,13 +37,13 @@ public class Usuario {
 	@OneToMany(mappedBy="usuario",
 			   targetEntity=Noticia.class,
 			   fetch=FetchType.LAZY,
-			   cascade = CascadeType.REMOVE)
+			   cascade = CascadeType.ALL)
 	private List<Noticia> noticias;
 
 	@OneToMany(mappedBy="usuario",
 			   targetEntity=Comentario.class,
 			   fetch=FetchType.LAZY,
-			   cascade = CascadeType.REMOVE)
+			   cascade = CascadeType.ALL)
 	private List<Comentario> comentarios ;
 	
 	@Column(insertable=false,

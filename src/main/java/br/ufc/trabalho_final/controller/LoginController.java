@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.ufc.trabalho_final.criptografia.Criptografia;
 import br.ufc.trabalho_final.dao.IUsuarioDAO;
 import br.ufc.trabalho_final.form.LoginForm;
 import br.ufc.trabalho_final.model.Usuario;
@@ -29,9 +30,11 @@ public class LoginController {
 		List<Usuario> usuarios = usuarioDAO.findByLoginLike(loginForm.getLogin());
 		if(usuarios!=null && usuarios.size()>0){
 			Usuario usuario = usuarios.get(0);
-			if(loginForm.getSenha().equals(usuario.getSenha())){
+			String senha = Criptografia.codifica(loginForm.getSenha());
+			//System.out.println(senha);
+			if(senha.equals(usuario.getSenha())){
 				session.setAttribute("usuario_logado", usuario);
-				return "menu";
+				return "redirect:/";
 			}
 		}
 		

@@ -14,9 +14,13 @@ public class AutorizadorInteceptor extends HandlerInterceptorAdapter{
 			HttpServletResponse response, Object handler) throws Exception {
 		
 		String uri = request.getRequestURI();
-		if(uri.endsWith("/") ||
-		   uri.endsWith("efetuarLoginFormulario") ||
-		   uri.endsWith("efetuarLogin")){
+		if(uri.contains("inserirUsuario")
+				|| uri.endsWith("/") ||
+		   uri.contains("efetuarLogin") || 
+		   uri.endsWith("efetuarLogout") || 
+		   uri.endsWith("listarClassificado") ||
+		   uri.contains("visualizarNoticia") ||
+		   uri.contains("listarNoticiaSecao")){
 			return true;
 		}
 		
@@ -25,6 +29,7 @@ public class AutorizadorInteceptor extends HandlerInterceptorAdapter{
 		}
 		
 		response.sendRedirect("efetuarLoginFormulario");
+		System.out.println(uri);
 		return false;
 	}
 }

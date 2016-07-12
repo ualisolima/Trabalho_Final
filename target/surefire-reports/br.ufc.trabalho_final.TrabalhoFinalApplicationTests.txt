@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: br.ufc.trabalho_final.TrabalhoFinalApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.744 sec - in br.ufc.trabalho_final.TrabalhoFinalApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.178 sec - in br.ufc.trabalho_final.TrabalhoFinalApplicationTests

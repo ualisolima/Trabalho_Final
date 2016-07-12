@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,6 +15,7 @@ public class Classificado {
 	
 	@Id
 	@Column(nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id_classificado ;
 	
 	@Column (nullable = false)
@@ -30,7 +33,7 @@ public class Classificado {
 	@Column
 	private Double melhor_oferta ;
 	
-	@Column (nullable = false)
+	@Column
 	private Timestamp data_oferta ;
 	
 	@Column (insertable = false, updatable = false)
